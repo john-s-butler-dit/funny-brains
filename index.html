@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Funny Brains — Science Communication via Comedy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --orange: #f4631e;
+      --dark:   #1a1a2e;
+      --cream:  #fdf6ec;
+      --yellow: #ffd166;
+      --teal:   #06d6a0;
+      --card-bg:#ffffff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    /* ── HERO ─────────────────────────────────────── */
+    header {
+      background: var(--dark);
+      color: var(--cream);
+      padding: 60px 24px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 20% 50%, rgba(244,99,30,.25) 0%, transparent 60%),
+                  radial-gradient(ellipse at 80% 30%, rgba(6,214,160,.15) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: .85rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 12px;
+    }
+    header h1 {
+      font-family: 'Bangers', cursive;
+      font-size: clamp(3.5rem, 10vw, 7rem);
+      line-height: 1;
+      letter-spacing: .03em;
+      color: var(--orange);
+      text-shadow: 4px 4px 0 rgba(0,0,0,.35);
+      margin-bottom: 6px;
+    }
+    header h2 {
+      font-family: 'Bangers', cursive;
+      font-size: clamp(1.4rem, 4vw, 2.6rem);
+      letter-spacing: .06em;
+      color: var(--cream);
+      margin-bottom: 28px;
+    }
+    .hero-desc {
+      max-width: 640px;
+      margin: 0 auto 36px;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      opacity: .88;
+    }
+    .hero-badges {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .badge {
+      background: var(--orange);
+      color: #fff;
+      font-weight: 800;
+      font-size: .8rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 7px 18px;
+      border-radius: 100px;
+    }
+    .badge.teal { background: var(--teal); color: var(--dark); }
+
+    /* ── SECTION WRAPPER ──────────────────────────── */
+    section { padding: 72px 24px; }
+    .container { max-width: 1080px; margin: 0 auto; }
+    .section-label {
+      font-family: 'Bangers', cursive;
+      font-size: 2.2rem;
+      letter-spacing: .06em;
+      color: var(--orange);
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 3px;
+      background: linear-gradient(to right, var(--orange), transparent);
+      border-radius: 2px;
+    }
+
+    /* ── MOTIVATION (intro cards) ─────────────────── */
+    #motivation { background: var(--cream); }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    @media(max-width:660px){ .two-col { grid-template-columns: 1fr; } }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 4px 24px rgba(0,0,0,.07);
+      border-left: 5px solid var(--orange);
+    }
+    .card h3 {
+      font-family: 'Bangers', cursive;
+      font-size: 1.5rem;
+      letter-spacing: .05em;
+      margin-bottom: 12px;
+      color: var(--dark);
+    }
+    .card p { font-size: .97rem; line-height: 1.75; color: #333; }
+
+    /* ── WORKSHOP STEPS ───────────────────────────── */
+    #workshop { background: var(--dark); color: var(--cream); }
+    #workshop .section-label { color: var(--yellow); }
+    #workshop .section-label::after { background: linear-gradient(to right, var(--yellow), transparent); }
+
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    @media(max-width:700px){ .steps { grid-template-columns: 1fr; } }
+
+    .step {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 16px;
+      padding: 32px 28px;
+      position: relative;
+    }
+    .step-num {
+      font-family: 'Bangers', cursive;
+      font-size: 4rem;
+      color: var(--orange);
+      line-height: 1;
+      margin-bottom: 10px;
+      opacity: .9;
+    }
+    .step h3 {
+      font-family: 'Bangers', cursive;
+      font-size: 1.45rem;
+      letter-spacing: .05em;
+      color: var(--yellow);
+      margin-bottom: 12px;
+    }
+    .step p { font-size: .93rem; line-height: 1.7; opacity: .85; }
+    .step ul { margin-top: 10px; padding-left: 18px; font-size: .93rem; line-height: 1.9; opacity: .85; }
+
+    /* ── BENEFITS ─────────────────────────────────── */
+    #benefits { background: var(--cream); }
+    .benefits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    @media(max-width:600px){ .benefits-grid { grid-template-columns: 1fr; } }
+
+    .benefit-group h3 {
+      font-family: 'Bangers', cursive;
+      font-size: 1.6rem;
+      letter-spacing: .05em;
+      color: var(--orange);
+      margin-bottom: 16px;
+    }
+    .benefit-group ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .benefit-group li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: .97rem; line-height: 1.6;
+    }
+    .benefit-group li::before {
+      content: '✦';
+      color: var(--teal);
+      font-size: 1rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ── EVENTS ───────────────────────────────────── */
+    #events { background: #f0f4f8; }
+    .events-row { display: flex; gap: 20px; flex-wrap: wrap; }
+    .event-pill {
+      background: var(--dark);
+      color: var(--cream);
+      border-radius: 12px;
+      padding: 20px 28px;
+      font-size: .95rem;
+    }
+    .event-pill strong {
+      display: block;
+      font-family: 'Bangers', cursive;
+      font-size: 1.4rem;
+      letter-spacing: .05em;
+      color: var(--orange);
+      margin-bottom: 4px;
+    }
+
+    /* ── TEAM ─────────────────────────────────────── */
+    #team { background: var(--cream); }
+    .team-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+    @media(max-width:680px){ .team-grid { grid-template-columns: 1fr; } }
+
+    .team-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 28px 24px;
+      text-align: center;
+      box-shadow: 0 4px 24px rgba(0,0,0,.07);
+    }
+    .team-card .avatar {
+      width: 72px; height: 72px;
+      background: var(--orange);
+      border-radius: 50%;
+      margin: 0 auto 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bangers', cursive;
+      font-size: 1.8rem;
+      color: #fff;
+    }
+    .team-card h4 { font-weight: 800; font-size: 1.05rem; margin-bottom: 4px; }
+    .team-card p  { font-size: .85rem; color: #666; }
+
+    /* ── RULE OF THREE HIGHLIGHT ──────────────────── */
+    .rule-of-three {
+      background: var(--orange);
+      color: #fff;
+      border-radius: 16px;
+      padding: 36px 40px;
+      margin-top: 40px;
+      font-family: 'Bangers', cursive;
+      font-size: 1.6rem;
+      letter-spacing: .05em;
+      line-height: 1.5;
+      text-align: center;
+    }
+    .rule-of-three span { opacity: .7; font-size: 1rem; font-family: 'Nunito', sans-serif; font-weight: 600; display: block; margin-top: 8px; letter-spacing: 0; }
+
+    /* ── FOOTER ───────────────────────────────────── */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,.6);
+      text-align: center;
+      padding: 40px 24px;
+      font-size: .85rem;
+    }
+    footer strong { color: var(--orange); font-family: 'Bangers', cursive; font-size: 1.1rem; letter-spacing: .05em; }
+  </style>
+</head>
+<body>
+
+<!-- ── HERO ──────────────────────────────────────── -->
+<header>
+  <p class="hero-eyebrow">Neuroscience Outreach</p>
+  <h1>Funny Brains</h1>
+  <h2>Science Communication via Comedy</h2>
+  <p class="hero-desc">
+    An initiative that integrates humour and creative communication into neuroscience outreach — giving researchers a platform to present scientific concepts through comedy, storytelling, and being genuinely human.
+  </p>
+  <div class="hero-badges">
+    <span class="badge">FENS Forum 2024</span>
+    <span class="badge teal">FRM Oslo 2025</span>
+    <span class="badge">60+ Participants</span>
+  </div>
+</header>
+
+<!-- ── MOTIVATION ────────────────────────────────── -->
+<section id="motivation">
+  <div class="container">
+    <div class="section-label">The Motivation</div>
+    <div class="two-col">
+      <div class="card">
+        <h3>What is Funny Brains?</h3>
+        <p>Funny Brains is an initiative that integrates humour and creative communication into neuroscience outreach. It provides a platform for researchers to present scientific concepts through comedy and storytelling, enhancing accessibility, audience engagement and the broader impact of their research.</p>
+      </div>
+      <div class="card">
+        <h3>The Method</h3>
+        <p>Like good comedy, everything follows the rule of three: three mentors, three parts of the workshop, and three versions of Funny Brains — two in-person and one online. The mentors bring varied experience in neuroscience and science communication.</p>
+      </div>
+    </div>
+    <div class="rule-of-three">
+      3 Mentors &nbsp;·&nbsp; 3 Workshop Parts &nbsp;·&nbsp; 3 Editions
+      <span>Because the rule of three works in comedy — and in science communication.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── WORKSHOP ───────────────────────────────────── -->
+<section id="workshop">
+  <div class="container">
+    <div class="section-label">The Workshop Structure</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>The Tutorial</h3>
+        <p>Participants kick off with a Science Communication Talk, an Ice-Breaker, and a Brainstorm. In small groups guided by mentors, they develop their core science comedy concept.</p>
+        <ul>
+          <li>Science Communication Talk</li>
+          <li>Ice-Breaker activities</li>
+          <li>Small-group brainstorm with mentor guidance</li>
+        </ul>
+        <p style="margin-top:14px;">The goal is not about being a comedian — it's about storytelling, being relatable and human.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>The Feedback</h3>
+        <p>Before the performance, a subset of participants meet up with the mentors to hone their materials and shake off any pre-show stage fright.</p>
+        <p style="margin-top:12px;">Performers practise their routine in front of each other, and mentors give targeted feedback on flow and delivery.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>The Performance</h3>
+        <p>Performers take the stage before crowds of a few hundred conference attendees. Acts range from quick-fire jokes to classic stand-up about conference life to sketch comedy about neurons.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BENEFITS ───────────────────────────────────── -->
+<section id="benefits">
+  <div class="container">
+    <div class="section-label">The Benefits</div>
+    <div class="benefits-grid">
+      <div class="benefit-group">
+        <h3>For Participants</h3>
+        <ul>
+          <li>Improved science communication skills</li>
+          <li>Public speaking and performance experience</li>
+          <li>Cross-disciplinary networking</li>
+          <li>New perspectives on their own research</li>
+          <li>Authentic, human communication style</li>
+        </ul>
+      </div>
+      <div class="benefit-group">
+        <h3>For Audiences</h3>
+        <ul>
+          <li>Accessible and engaging neuroscience content</li>
+          <li>Increased interest and connection with different areas of scientific research</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EVENTS ─────────────────────────────────────── -->
+<section id="events">
+  <div class="container">
+    <div class="section-label">Past Events</div>
+    <div class="events-row">
+      <div class="event-pill">
+        <strong>FENS Forum 2024</strong>
+        In-person workshop &amp; performance — 60+ tutorial participants, 10 acts
+      </div>
+      <div class="event-pill">
+        <strong>FRM Oslo 2025</strong>
+        In-person edition — growing the community across Europe
+      </div>
+      <div class="event-pill">
+        <strong>Online Edition</strong>
+        Bringing Funny Brains to researchers beyond conference venues
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TEAM ───────────────────────────────────────── -->
+<section id="team">
+  <div class="container">
+    <div class="section-label">The Team</div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="avatar">JB</div>
+        <h4>John S. Butler</h4>
+        <p>TU Dublin</p>
+      </div>
+      <div class="team-card">
+        <div class="avatar">RE</div>
+        <h4>Rebecca Ellis</h4>
+        <p>Swansea University</p>
+      </div>
+      <div class="team-card">
+        <div class="avatar">MM</div>
+        <h4>Michele Marini</h4>
+        <p>LUNEX</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────── -->
+<footer>
+  <p><strong>Funny Brains</strong> — Science Communication via Comedy</p>
+  <p style="margin-top:8px;">Supported by the Federation of European Neuroscience Societies (FENS)</p>
+</footer>
+
+</body>
+</html>
